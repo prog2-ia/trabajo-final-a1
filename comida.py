@@ -10,7 +10,7 @@ class Comida(Producto):
     CATEGORIAS_VALIDAS = {"entrante", "principal", "postre", "snack"}
     def __init__(self, nombre: str, precio: float, stock: int,
                  categoria: str, tiempo_prep: int):
-        # Llamamos al __init__ del padre (Producto)
+        # Llamamos al __init__ de Producto
         super().__init__(nombre, precio, stock)
         # Validamos la categoría
         categoria = categoria.lower()

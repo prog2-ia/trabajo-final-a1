@@ -24,5 +24,5 @@ class Comida(Producto):
                 raise ValueError("El tiempo de preparación no puede ser negativo.")
 
             self._categoria = categoria
-            self._tiempo_prep = tiempo_prep  # En minutos
+            self._tiempo_prep = tiempo_prep  # en minutos
 

@@ -30,7 +30,7 @@ class Horario:
         # -------------------------
 
     def esta_abierto(self, hora_actual: int) -> bool:
-        """Devuelve True si el negocio está abierto en la hora indicada"""
+        """Devuelve True si el negocio está abierto a la hora indicada"""
         if not (0 <= hora_actual <= 23):
             raise ValueError("La hora actual debe estar entre 0 y 23")
 

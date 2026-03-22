@@ -3,14 +3,16 @@ from abc import ABC, abstractmethod
 class Producto(ABC):
     """"CLASE ABSTRACTA | PRODUCTO BASE DEL MENU DEL FOOD TRUCK"""
 
-    def __init__(self, nombre: str, precio: float, stock: int):
-        if precio <= 0:
+    def __init__(self, nombre: str, precio_base: float, stock: int):
+        if not nombre.strip():
+            raise ValueError("El nombre no puede estar vacío")
+        if precio_base <= 0:
             raise ValueError("Precio no valido")
         if stock < 0:
             raise ValueError("Stock no valido")
 
         self.__nombre = nombre
-        self.__precio = float(precio)
+        self.__precio_base = float(precio_base)
         self.__stock = stock
 
     #------------------------------------
@@ -22,11 +24,16 @@ class Producto(ABC):
 
     @property
     def precio_base(self) -> float:
-        return self.__precio
+        return self.__precio_base
 
     @property
     def stock(self) -> int:
         return self.__stock
+
+    @property
+    @abstractmethod
+    def categoria(self) -> str:
+        """DEVOLVERÁ LA CATEGORÍA DE CADA PRODUCTO"""
 
     #--------------------------------------
     # GESTIÓN DE STOCK
@@ -38,15 +45,19 @@ class Producto(ABC):
 
     def reducir_stock(self, cantidad: int):
         if cantidad <= 0:
-            raise ValueError('La cantidad a descontar debe ser positiva')
+            raise ValueError("La cantidad a descontar debe ser positiva")
         if cantidad > self.__stock:
             raise ValueError("No se puede reducir a un stock negativo")
         self.__stock -= cantidad
+
+    @abstractmethod
+    def precio_venta(self) -> float:
+        """CALCULA EL PRECIO FINAL DE VENTA"""
 
     #--------------------------------------
     # MÉTODOS ESPECIALES
     #--------------------------------------
     def __str__(self):
-        return f'{self.__nombre} — {self.__precio:.2f}€  [stock: {self.__stock}]'
+        return f"{self.__nombre} — {self.__precio_base:.2f}€  [stock: {self.__stock}]"
     def __repr__(self):
-        return f'(nombre={self.__nombre}, precio={self.__precio}, stock={self.__stock})'
+        return f"(nombre={self.__nombre}, precio={self.__precio_base}, stock={self.__stock})"

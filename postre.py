@@ -14,3 +14,15 @@ class Postre(Producto):
     @property
     def tiene_gluten(self) -> bool:
         return self.__tiene_gluten
+
+    @property
+    def categoria(self) -> str:
+        return 'Postre'
+
+    def precio_venta(self) -> float:
+        if not self.tiene_gluten:
+            descuento_artesanal = 0.15
+        else:
+            descuento_artesanal = 0
+        return round(self.precio_base * 1.12 + descuento_artesanal, 2)
+

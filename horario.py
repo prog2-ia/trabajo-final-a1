@@ -13,3 +13,16 @@ class Horario:
         self.__hora_apertura = hora_apertura
         self.__hora_cierre = hora_cierre
 
+        # -------------------------
+        # GETTERS DE LOS ATRIBUTOS PRIVADOS
+        # -------------------------
+
+    @property
+    def hora_apertura(self) -> int:
+        return self.__hora_apertura
+
+    @property
+    def hora_cierre(self) -> int:
+        return self.__hora_cierre
+
+

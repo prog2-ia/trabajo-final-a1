@@ -7,16 +7,16 @@ Simula el funcionamiento real de un food truck: puedes ver la carta con los prod
 
 # ESTRUCTURA DEL PROYECTO
 trabajo-final-a1/
-├── producto.py       # Clase abstracta base de todos los productos
-├── bebida.py         # Heredado de Producto | Aplica recargo por tamaño
-├── comida.py         # Heredado de Producto | Aplica IVA al precio
-├── postre.py         # Heredado de Producto | Descuento si no tiene gluten
-├── horario.py        # Controla la apertura y cierre del servicio
-├── servicio.py       # Gestiona si se puede atender según el horario
-├── pedido.py         # Pedidos con líneas
-├── foodtruck.py      # Clase central: menú, pedidos y ventas
-├── test_proyecto.py  # Menú interactivo para hacer pedidos
-└── README.md
+- `producto.py` — Clase abstracta base de todos los productos
+- `bebida.py` — Hereda de Producto, aplica recargo por tamaño
+- `comida.py` — Hereda de Producto, aplica IVA al precio
+- `postre.py` — Hereda de Producto, descuento si no tiene gluten
+- `horario.py` — Controla la apertura y cierre del servicio
+- `servicio.py` — Gestiona si se puede atender según el horario
+- `pedido.py` — Pedidos con líneas, confirmación y operadores
+- `foodtruck.py` — Clase central: menú, pedidos y ventas
+- `prueba.py` — Menú interactivo para probar el sistema
+- `README.md` — Documentación del proyecto
 
 # REQUISITOS
 Solo es necesario tener Python 3, no hay que instalar nada extra.

@@ -19,7 +19,7 @@ trabajo-final-a1/
 - `README.md` — Documentación del proyecto
 
 # REQUISITOS
-Solo es necesario tener Python 3, no hay que instalar nada extra.
+Solo es necesario tener Python 3, no es necesario instalar nada extra.
 
 # COMO EJECUTARLO
 Descarga todos los archivos en la misma carpeta y ejecuta "python test_proyecto.py"

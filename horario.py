@@ -25,4 +25,18 @@ class Horario:
     def hora_cierre(self) -> int:
         return self.__hora_cierre
 
+        # -------------------------
+        # MÉTODOS
+        # -------------------------
+
+    def esta_abierto(self, hora_actual: int) -> bool:
+        """Devuelve True si el negocio está abierto en la hora indicada"""
+        if not (0 <= hora_actual <= 23):
+            raise ValueError("La hora actual debe estar entre 0 y 23")
+
+        return self.__hora_apertura <= hora_actual < self.__hora_cierre
+
+    def __str__(self):
+        return f"Abierto de {self.__hora_apertura}:00 a {self.__hora_cierre}:00"
+
 

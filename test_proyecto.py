@@ -29,7 +29,7 @@ print(f"Estado ahora ({hora_actual}:00): {servicio.atender(hora_actual)}")
 
 # --- Menú principal ---
 opcion=""
-while opcion !="4":
+while opcion !="5":
     print("\n=== FOOD TRUCK MANAGER ===")
     print("1. Ver menú")
     print("2. Hacer un pedido")

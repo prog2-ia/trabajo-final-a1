@@ -14,3 +14,17 @@ class Factura:
 
         self.__pedido = pedido
         self.__fecha = datetime.now()
+
+        # GETTERS
+
+    @property
+    def fecha(self):
+        return self.__fecha
+
+    @property
+    def cliente(self):
+        return self.__pedido.cliente
+
+    @property
+    def total(self):
+        return self.__pedido.total

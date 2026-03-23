@@ -8,21 +8,24 @@ entrantes, principales, postres y snacks '''
 
 class Comida(Producto):
     CATEGORIAS_VALIDAS = {"entrante", "principal", "postre", "snack"}
-    def __init__(self, nombre: str, precio: float, stock: int,
-                 categoria: str, tiempo_prep: int):
+    def __init__(self, nombre: str, precio_base: float, stock: int, minutos_preparacion: int):
         # Llamamos al __init__ de Producto
-        super().__init__(nombre, precio, stock)
+        super().__init__(nombre, precio_base, stock)
         # Validamos la categoría
-        categoria = categoria.lower()
-        if categoria not in self.CATEGORIAS_VALIDAS:
-            raise ValueError(
-                f"Categoría '{categoria}' no válida. "
-                f"Opciones: {self.CATEGORIAS_VALIDAS}"
-            )
-            #Validamos el tiempo de preparación
-            if tiempo_prep < 0:
-                raise ValueError("El tiempo de preparación no puede ser negativo.")
+        if minutos_preparacion <= 0:
+            raise ValueError("Los minutos de preparación deben ser positivos.")
+        self.__minutos_preparacion = minutos_preparacion
 
-            self._categoria = categoria
-            self._tiempo_prep = tiempo_prep  # En minutos
+    # -------------------------
+    # GETTER
+    # -------------------------
+    @property
+    def minutos_preparacion(self) -> int:
+        return self.__minutos_preparacion
 
+    @property
+    def categoria(self) -> str:
+        return "Comida"
+
+    def precio_venta(self) -> float:
+        return round(self.precio_base * 1.18, 2)

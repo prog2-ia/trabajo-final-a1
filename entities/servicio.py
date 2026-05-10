@@ -1,4 +1,4 @@
-from horario import Horario
+from entities.horario import Horario
 
 
 class Servicio:

@@ -1,10 +1,10 @@
-from bebida import Bebida
-from comida import Comida
-from postre import Postre
-from pedido import Pedido
-from foodtruck import FoodTruck
-from horario import Horario
-from servicio import Servicio
+from entities.bebida import Bebida
+from entities.comida import Comida
+from entities.postre import Postre
+from entities.pedido import Pedido
+from entities.foodtruck import FoodTruck
+from entities.horario import Horario
+from entities.servicio import Servicio
 from datetime import datetime
 
 print("=" * 40)

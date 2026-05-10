@@ -1,4 +1,6 @@
 from abc import ABC, abstractmethod
+from entities.exceptions import StockInsuficienteError
+
 
 class Producto(ABC):
     """"CLASE ABSTRACTA | PRODUCTO BASE DEL MENU DEL FOOD TRUCK"""
@@ -47,7 +49,7 @@ class Producto(ABC):
         if cantidad <= 0:
             raise ValueError("La cantidad a descontar debe ser positiva")
         if cantidad > self.__stock:
-            raise ValueError("No se puede reducir a un stock negativo")
+            raise StockInsuficienteError("No se puede reducir a un stock negativo")
         self.__stock -= cantidad
 
     @abstractmethod

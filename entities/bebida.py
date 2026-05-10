@@ -1,4 +1,4 @@
-from producto import Producto
+from entities.producto import Producto
 
 class Bebida(Producto):
     def __init__(self, nombre: str, precio_base: float, stock: int, mililitros: int) -> None:

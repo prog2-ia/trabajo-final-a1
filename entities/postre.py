@@ -1,4 +1,4 @@
-from producto import Producto
+from entities.producto import Producto
 
 
 class Postre(Producto):

@@ -1,42 +1,39 @@
+
+from datetime import datetime, timedelta
+
 class Horario:
     'Clase que representa el horario de apertura '
-    'No depende de nada'
 
-    def __init__(self, hora_apertura: int, hora_cierre: int):
-        if not (0 <= hora_apertura <= 23):
-            raise ValueError("La hora de apertura debe estar entre 0 y 23")
-        if not (0 <= hora_cierre <= 23):
-            raise ValueError("La hora de cierre debe estar entre 0 y 23")
-        if hora_cierre <= hora_apertura:
-            raise ValueError("La hora de cierre debe ser mayor que la de apertura")
+    def __init__(self, inicio: datetime, fin: datetime) -> None:
+        if fin <= inicio:
+            raise ValueError('La hora de fin debe ser posterior al inicio.')
+        self.__inicio = inicio
+        self.__fin = fin
 
-        self.__hora_apertura = hora_apertura
-        self.__hora_cierre = hora_cierre
 
-        # -------------------------
-        # GETTERS DE LOS ATRIBUTOS PRIVADOS
-        # -------------------------
+    #------------------------------------
+    # GETTERS DE LOS ATRIBUTOS PRIVADOS
+    #------------------------------------
+    @property
+    def inicio(self) -> datetime:
+        return self.__inicio
 
     @property
-    def hora_apertura(self) -> int:
-        return self.__hora_apertura
+    def fin(self) -> datetime:
+        return self.__fin
 
     @property
-    def hora_cierre(self) -> int:
-        return self.__hora_cierre
+    def duracion_minutos(self) -> int:
+        return int((self.fin - self.inicio).total_seconds() // 60)
 
-        # -------------------------
-        # MÉTODOS
-        # -------------------------
+    def contiene(self, otro: 'Horario') -> bool:
+        return self.inicio <= otro.inicio and otro.fin <= self.fin
 
-    def esta_abierto(self, hora_actual: int) -> bool:
-        """Devuelve True si el negocio está abierto a la hora indicada"""
-        if not (0 <= hora_actual <= 23):
-            raise ValueError("La hora actual debe estar entre 0 y 23")
+    def desplazar(self, minutos: int) -> 'Horario':
+        return Horario(self.inicio + timedelta(minutes=minutos), self.fin + timedelta(minutes=minutos))
 
-        return self.__hora_apertura <= hora_actual < self.__hora_cierre
+    def __str__(self) -> str:
+        return f'{self.inicio:%d/%m/%Y %H:%M} - {self.fin:%H:%M}'
 
-    def __str__(self):
-        return f"Abierto de {self.__hora_apertura}:00 a {self.__hora_cierre}:00"
 
 

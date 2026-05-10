@@ -1,5 +1,5 @@
-from producto import Producto
-from pedido import Pedido
+from entities.producto import Producto
+from entities.pedido import Pedido
 
 
 class FoodTruck:

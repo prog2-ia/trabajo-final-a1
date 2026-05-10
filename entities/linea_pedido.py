@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from producto import Producto
+from entities.producto import Producto
 
 
 @dataclass

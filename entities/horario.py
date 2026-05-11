@@ -29,6 +29,9 @@ class Horario:
     def contiene(self, otro: 'Horario') -> bool:
         return self.inicio <= otro.inicio and otro.fin <= self.fin
 
+    def esta_abierto(self, momento: datetime) -> bool:
+        return self.inicio <= momento <= self.fin
+
     def desplazar(self, minutos: int) -> 'Horario':
         return Horario(self.inicio + timedelta(minutes=minutos), self.fin + timedelta(minutes=minutos))
 
